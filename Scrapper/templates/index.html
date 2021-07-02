@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container row my-5 mx-auto ">
+    {% for listing in listings %} 
+        <div class="col-md-4 col-sm-6 text-center my-4 listing">
+            <a href="{{ listing.url }}" target="_blank" class="col" style="text-decoration: none; color: black;">
+                <img src="{{ listing.image_url }}" alt="{{ listing.title }}" class="card-img-top" width="300" height="300" />
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ listing.title|title }}</h5>
+                    <p class="card-text">Price: <strong>{{ listing.price }}</strong></p>
+                    <p class="card-text">Posted on: <strong>{{ listing.time }}</strong></p>
+                    <p class="card-text">Neighbourhood: <strong>{{ listing.neighbourhood|title }}</strong></p>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
